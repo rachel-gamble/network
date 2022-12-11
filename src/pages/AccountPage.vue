@@ -1,7 +1,7 @@
 <template>
   <div class="about text-center">
-    <img :src="account.coverImg" alt="" />
-    <h1>Welcome {{ account.name }}</h1>
+    <img :src="account.coverImg" class="img-fluid p-2 mt-3" alt="" />
+    <h1 class="creeper">Welcome {{ account.name }}</h1>
     <img class="rounded" :src="account.picture" alt="" />
     <h3>{{ account.email }}</h3>
     <p>{{ account.bio }}</p>
@@ -18,7 +18,7 @@
 
   </div>
 
-  <form class="input-group bg-dark p-3" @submit.prevent="editProfile(formData)">
+  <form class="input-group bg-dark p-3 justify-content-center" @submit.prevent="editProfile(formData)">
     <div class="d-flex">
       <div class="d-flex flex-column profile-form">
         <label for="email">Account email</label>
@@ -84,10 +84,10 @@
         <label for="graduated">Are you an alumni of BCW?</label>
         <input type="checkbox" v name="graduated" v-model="account.graduated">
       </div>
+    </div>
       <span class="mt-2">
         <button type="submit" class="btn btn-success selectable">Submit</button>
       </span>
-    </div>
   </form>
 </template>
 
@@ -120,9 +120,13 @@ export default {
 
 <style scoped>
 img {
-  max-width: 100px;
+  max-width: 50vh;
 }
 .profile-form {
   min-height: 100%;
+}
+
+.creeper {
+  font-family: 'Creepster', cursive;
 }
 </style>

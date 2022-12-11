@@ -2,15 +2,14 @@
   <div class="row mt-1 cards shadow elevation-5">
     <div class="d-flex p-3">
       <!-- <router-link> -->
-      <img :src="post.creator.picture" alt="Profile pic" title="Go To Profile" class="img-fluid selectable"
-        style="max-height: 100px; border-radius: 50%" @click.stop="navigateTo('Profile', { id: post.creatorId })" />
+      <img :src="post.creator.picture" alt="Profile pic" title="Go To Profile" class="img-fluid selectable rounded-circle prof-img"
+        @click.stop="navigateTo('Profile', { id: post.creatorId })" />
       <!-- </router-link> -->
       <div class="mx-3">
-        <h3 class="text-break">{{ post.creator.name }}</h3>
-        <h5>{{ post.creator.bio }}</h5>
-        <div class="d-flex justify-content-between">
+        <p class="text-break fw-bold name">{{ post.creator.name }}</p>
+        <!-- <p class="">{{ post.creator.bio }}</p> -->
+        <div class="d-flex justify-content-between date">
           {{ post.updatedAt.substring(0, 10) }}
-
 
         </div>
       </div>
@@ -25,8 +24,8 @@
     <div class="div">
       <div class="d-flex justify-content-between">
 
-        <div class="bg-light rounded p-2" style="width: 100%">
-          <p class="">
+        <div class="rounded p-2" style="width: 100%">
+          <p class="body-text">
             {{ post.body }}
           </p>
         </div>
@@ -110,15 +109,27 @@ export default {
   border-radius: 20px;
   border-style: solid 4px;
   border-width: 8px;
+  background-color: black;
 }
 
 .prof-img {
-  width: 20px;
-  height: 20px;
+  width: 3em;
+  height: 3em;
+}
+
+.name{
+  color: #c391ee;
+  font-size: 1.5em;
+  font-family: 'Creepster', cursive;
 }
 
 .body-text {
-    font-size: 16px;
-    color: lavender
+    font-size: 1em;
+    color: #c391ee
+}
+
+.date{
+  font-size: .75em;
+    color: #c391ee
 }
 </style>

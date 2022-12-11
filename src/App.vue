@@ -27,5 +27,7 @@ export default {
 
 .bg{
   background: linear-gradient(to right,#000000, #fc65fc);
+  font-family: 'Abel', sans-serif;
+
 }
 </style>

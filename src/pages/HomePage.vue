@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-3 bg-dark">
+      <div class="col-md-2">
         <!-- this is where i inject the login/user info -->
         <Login />
       </div>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <div class="d-flex justify-content-between">
 
           <button v-if="user.isAuthenticated" type="button" title="Click to open form" class="btn btn-success m-3"
@@ -13,11 +13,12 @@
             Create a post!
           </button>
 
+          <!--PAGE COMPONENT-->
           <div class="d-flex flex-column align-items-center">
             <p class="mt-4">Page: {{ page.page }}</p>
 
             <div class="d-flex px-3">
-              <div v-if="currentPage > 1" @click="changePage(-1)" class="pop d-flex fs-2">
+              <div v-if="currentPage > 1" @click="changePage()" class="pop d-flex fs-2">
                 <i class="mdi mdi-chevron-left mt-4"></i>
                 <i class="mdi mdi-chevron-left mt-4"></i>
               </div>
@@ -91,12 +92,12 @@ export default {
       totalPages: computed(() => AppState.totalPages),
       currentPage: computed(() => AppState.currentPage),
 
-      async changePage(value) {
+      async changePage() {
 
         let newPage = AppState.currentPage += value
 
         if (newPage <= 0) {
-          Pop.toast('You shall not pass', "warning")
+          Pop.toast('this is the first page, silly', "warning")
           return
         }
         if (newPage > AppState.pageData.totalPages) {
