@@ -9,28 +9,20 @@
           <!-- <Profile-details /> -->
           <ProfileDetails />
 
+          <!-- Page Count -->
         </div>
         <div class="d-flex px-3 justify-content-center">
           <div class="d-flex flex-column text-center">
             <p> Page: {{ page.page }}</p>
-
+            
+            <!-- Page Function -->
             <div class="p-3 mx-2">
               <i class="mdi mdi-chevron-left"></i>
               <button class="mx-3" @click="pageBack()">Newer posts</button>
               <button class="mx-3" @click="pageForward()">Older posts</button>
               <i class="mdi mdi-chevron-right"></i>
             </div>
-            <!-- <div class="d-flex">
-           <div @click="changeProfilePage(-1)" class="pop d-flex fs-2">
-        <i class="mdi mdi-chevron-left mt-4"></i>
-        <i class="mdi mdi-chevron-left mt-4"></i>
-           </div>
 
-           <div @click="changeProfilePage(1)" class="pop d-flex fs-2">
-        <i class="mdi mdi-chevron-right mt-4"></i>
-        <i class="mdi mdi-chevron-right mt-4"></i>
-              </div>
-              </div> -->
           </div>
         </div>
         <Post v-for="p in activePosts" :key="p.id" :post="p" />
@@ -38,18 +30,8 @@
       <div class="col-md-3">
         <Billboard v-for="b in billboards" :key="b.id" :billboards="b" />
       </div>
-      <!-- <div class="d-flex px-3 justify-content-center">
-           <p>Page: {{page.page}}</p> 
-           <div @click="changeProfilePage(-1, newer)" class="pop d-flex fs-2">
-        <i class="mdi mdi-chevron-left mt-4"></i>
-        <i class="mdi mdi-chevron-left mt-4"></i>
-           </div>
 
-           <div @click="changeProfilePage(1, older)" class="pop d-flex fs-2">
-        <i class="mdi mdi-chevron-right mt-4"></i>
-        <i class="mdi mdi-chevron-right mt-4"></i>
-           </div>
-          </div> -->
+
     </div>
   </div>
 </template>

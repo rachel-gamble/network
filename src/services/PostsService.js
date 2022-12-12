@@ -19,6 +19,7 @@ class PostsService {
         AppState.pageData = res.data
         logger.log(res.data)
     }
+    
     async getByQuery(params) {
         AppState.activePosts = []
         // AppState.pageData = {}

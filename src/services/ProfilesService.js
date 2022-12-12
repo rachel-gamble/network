@@ -23,11 +23,11 @@ class ProfilesService {
         logger.log(['ChangePage Method'], res.data)
     }
 
-    async likePost(id) {
-        const res = await api.post('api/posts/' + id + '/like')
-        logger.log('like button pushed', res.data)
-        await this.getPosts()
-    }
+    // async likePost(id) {
+    //     const res = await api.post('api/posts/' + id + '/like')
+    //     logger.log('like button pushed', res.data)
+    //     await this.getPosts()
+    // }
 }
 
 export const profilesService = new ProfilesService()
