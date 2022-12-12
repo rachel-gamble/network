@@ -1,10 +1,10 @@
 <template>
   <div class="row p-2 bg-black mt-2" v-if="activeProfile !== null">
-    <img :src="activeProfile.coverImg" alt="" class="img-fluid rounded mt-2">
+    <img :src="activeProfile.coverImg" alt="" class="img-fluid rounded mt-3">
     <div class="col-md-6">
       <div class="d-flex">
 
-        <img :src="activeProfile.picture" alt="profile pic" class="img-clamp img">
+        <img :src="activeProfile.picture" alt="profile pic" class="img-clamp img mt-5">
         <i v-if="activeProfile.graduated" class="mdi mdi-school" style="font-size: 2em"></i>
 
 
@@ -26,9 +26,9 @@
   </div>
   <div class="row px-2" v-if="activeProfile">
     <!-- body or bio here -->
-    <h2>{{ activeProfile.name }}</h2>
-    <h6>{{ activeProfile.class }}</h6>
-    <p>{{ activeProfile.bio }}</p>
+    <h2 class="creeper pt-2">{{ activeProfile.name }}</h2>
+    <p class="class">{{ activeProfile.class }}</p>
+    <p class="bio">{{ activeProfile.bio }}</p>
   </div>
 
 </template>
@@ -54,6 +54,16 @@ export default {
   transform: translateY(-70px);
 }
 
+.creeper {
+  font-family: 'Creepster', cursive !important;
+  font-size: 1.8em;
+  text-shadow: 3px 3px black;
+}
+
+.bio {
+  text-shadow: 3px 3px black;
+}
+
 .img {
   max-height: 100px;
 }
@@ -64,6 +74,11 @@ export default {
 
 a {
   color: black;
+}
+
+.class {
+  font-size: .70em;
+  text-shadow: 3px 3px black;
 }
 
 .bg-black {

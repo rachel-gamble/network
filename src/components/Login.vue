@@ -9,7 +9,7 @@
       <div class="dropdown-toggle selectable" data-bs-toggle="dropdown" aria-expanded="false" id="authDropdown">
         <div v-if="account.picture">
           <img :src="account.picture" alt="account photo" height="40" class="rounded" />
-          <span class="mx-3 text-success lighten-30 mt-3">{{ account.name }}</span>
+          <span class="mx-3 user lighten-30 mt-3">{{ account.name }}</span>
         </div>
       </div>
       <div class="dropdown-menu list-group w-100" aria-labelledby="authDropdown">
@@ -63,6 +63,12 @@ export default {
 
 .hoverable {
   cursor: pointer;
+}
+
+.user {
+  font-size: 1.2em;
+  color: #c391ee;
+  text-shadow: 4px 4px #000000;
 }
 
 .bg {

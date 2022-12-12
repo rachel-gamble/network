@@ -112,6 +112,7 @@ export default {
   border-style: solid 4px;
   border-width: 8px;
   background-color: black;
+  
 }
 
 .prof-img {
@@ -127,7 +128,8 @@ export default {
 
 .body-text {
   font-size: 1em;
-  color: #c391ee
+  color: #c391ee;
+  text-shadow: 2px 2px #000000;
 }
 
 .date {

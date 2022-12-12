@@ -7,19 +7,9 @@
         placeholder="Post Title"
         v-model="newPost.title"
       /> -->
-      <textarea
-        class="form-control mt-3"
-        placeholder="Post Body"
-        v-model="newPost.body"
-        required
-        minlength="3"
-      ></textarea>
-      <input
-        type="url"
-        class="form-control mt-3"
-        placeholder="Post Picture URL"
-        v-model="newPost.imgUrl"
-      />
+      <textarea class="form-control mt-3" placeholder="Post Body" v-model="newPost.body" required
+        minlength="3"></textarea>
+      <input type="url" class="form-control mt-3" placeholder="Post Picture URL" v-model="newPost.imgUrl" />
       <!-- <input
         type="text"
         class="form-control"
@@ -29,13 +19,7 @@
       <span><small>* press space to add tag</small></span> -->
       <div class="d-flex justify-content-between mt-4">
         <button type="submit" class="btn btn-primary">Submit</button>
-        <button
-        
-          type="button"
-          class="btn btn-outline-danger" 
-          data-bs-dismiss="modal"
-          @click="closeForm"
-        >
+        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal" @click="closeForm">
           Cancel
         </button>
       </div>
@@ -50,6 +34,7 @@ import { postsService } from "../services/PostsService";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import Modal from './Modal.vue';
+// import { Modal } from "bootstrap";
 export default {
   components: { Modal },
 
@@ -60,8 +45,10 @@ export default {
       newPost,
       async createPost() {
         try {
-          
+
           await postsService.createPost(newPost.value);
+          // I tried so hard, and got so far, but in the end, it didn't even modal
+          // Modal.getOrCreateInstance(document.getElementById('post-modal')).hide()
           newPost.value = {}
           Pop.toast("Created post", "success")
           // Modal.getOrCreateInstance(document.getElementById('exampleModal')).toggle()
@@ -77,4 +64,5 @@ export default {
 
 
 <style lang="scss" scoped>
+
 </style>
