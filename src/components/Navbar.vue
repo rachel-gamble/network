@@ -4,15 +4,17 @@
   <nav class="navbar navbar-expand-lg navbar-dark px-3 sticky-top pt-2">
     <div class="d-flex container">
 
-      <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
+      <!-- <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }"> -->
+      <div @click="goHome()" class="navbar-brand d-flex selectable fw-bold">
         <div class="d-flex flex-column align-items-center">
-          <h1 class="network"><i>The Network</i></h1>
+          <p class="network mt-2"><i>The Network</i></p>
         </div>
-      </router-link>
+
+      </div>
+      <!-- </router-link> -->
       <form @submit.prevent="findPosts()" class="input-group p-4 ms-3">
-        <input v-model="query" required type="text" name="search" class="form-control"
-          placeholder="Search for posts..." aria-label="Search for post"
-          aria-describedby="button-addon2" />
+        <input v-model="query" required type="text" name="search" class="form-control" placeholder="Search for posts..."
+          aria-label="Search for post" aria-describedby="button-addon2" />
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
           Search...
         </button>
@@ -49,7 +51,16 @@ export default {
       query,
       page: computed(() => AppState.pageData),
       totalPages: computed(() => AppState.totalPages),
-
+      async goHome() {
+        try {
+          router.push('/')
+          await postsService.getPosts()
+        } catch (error) {
+          console.error(error)
+          // @ts-ignore 
+          Pop.error(('[ERROR]'), error.message)
+        }
+      },
       async findPosts() {
         try {
           router.push('/')
@@ -61,14 +72,14 @@ export default {
           logger.log('Could not commit to that search')
         }
       },
-      async findPeople(){
+      async findPeople() {
         try {
-         router.push('/')
-         await profilesService.search()
+          router.push('/')
+          await profilesService.search()
         } catch (error) {
-         console.error(error)
-         // @ts-ignore 
-         Pop.error(('[ERROR]'), error.message)
+          console.error(error)
+          // @ts-ignore 
+          Pop.error(('[ERROR]'), error.message)
         }
       },
 
@@ -98,5 +109,7 @@ export default {
 
 .network {
   font-family: 'Creepster', cursive;
+  color:#000000;
+  font-size: 2em;
 }
 </style>

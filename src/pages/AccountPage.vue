@@ -9,7 +9,7 @@
       <p>{{ account.bio }}</p>
 
       <div class="d-flex justify-content-center">
-        <div class="d-flex flex-column align-items-start">
+        <div class="d-flex flex-column align-items-start text-body">
 
           <span> <b>Github</b> {{ account.github }}</span>
           <span> <b>Linkedin:</b> {{ account.linkedin }}</span>
