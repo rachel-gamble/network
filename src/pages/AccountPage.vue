@@ -96,7 +96,8 @@ img {
 }
 
 .text-body {
-  color: #c391ee;
+  color: #c391ee !important;
+  text-shadow: 3px 3px black;
 }
 
 .link {

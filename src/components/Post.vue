@@ -30,9 +30,10 @@
             {{ post.body }}
           </p>
         </div>
-        <!-- like button -->
+        <!-- image -->
       </div>
-      <img class="img-fluid p-1 rounded" :src="post.imgUrl" alt="post image" title="user submission">
+      <img class="img-fluid p-1 rounded" :src="post.imgUrl || 'https://thiscatdoesnotexist.com'" alt="post image"
+        title="user submission">
     </div>
     <!-- Likes -->
     <div class="likes d-flex justify-content-end mb-2">

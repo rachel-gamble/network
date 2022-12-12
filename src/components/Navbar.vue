@@ -111,5 +111,6 @@ export default {
   font-family: 'Creepster', cursive;
   color:#000000;
   font-size: 2em;
+  text-shadow: 3px 3px #c391ee;
 }
 </style>
