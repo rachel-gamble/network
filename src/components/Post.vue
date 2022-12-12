@@ -90,7 +90,7 @@ export default {
           Pop.toast("Post liked", 'success')
         }
         catch (error) {
-          Pop.toast("Could not delete post", 'error')
+          Pop.toast("Login to like this post", 'error')
         }
       }
     }
@@ -112,7 +112,7 @@ export default {
   border-style: solid 4px;
   border-width: 8px;
   background-color: black;
-  
+
 }
 
 .prof-img {

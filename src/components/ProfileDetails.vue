@@ -10,6 +10,13 @@
 
       </div>
     </div>
+
+  </div>
+  <div class="row px-2" v-if="activeProfile">
+    <!-- body or bio here -->
+    <h2 class="creeper pt-2">{{ activeProfile.name }}</h2>
+    <p class="class">{{ activeProfile.class }}</p>
+    <p class="bio">{{ activeProfile.bio }}</p>
     <div class="col-md-6">
       <div class="d-flex">
         <div class="d-flex text-dark">
@@ -23,12 +30,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row px-2" v-if="activeProfile">
-    <!-- body or bio here -->
-    <h2 class="creeper pt-2">{{ activeProfile.name }}</h2>
-    <p class="class">{{ activeProfile.class }}</p>
-    <p class="bio">{{ activeProfile.bio }}</p>
   </div>
 
 </template>

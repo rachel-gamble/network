@@ -48,7 +48,7 @@ import { AppState } from "../AppState";
 import Billboard from "../components/Billboard.vue";
 import { billboardsService } from "../services/BillboardsService";
 import ProfileDetails from "../components/ProfileDetails.vue";
-import AccountPageVue from './AccountPage.vue';
+import AccountPageVue from "./AccountPage.vue";
 import { accountService } from '../services/AccountService.js';
 export default {
   setup() {
@@ -116,7 +116,7 @@ export default {
           Pop.toast("Post liked", 'success')
         }
         catch (error) {
-          Pop.toast("Could not delete post", 'error')
+          Pop.toast("Login in like this post", 'error')
         }
       }
     };
