@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2">
-        <!-- this is where i inject the login/user info -->
+      <div class="col-md-2 mt-3">
+        <!-- LOGIN  -->
         <Login />
       </div>
       <div class="col-md-7">
@@ -18,12 +18,12 @@
             <p class="mt-4">Page: {{ page.page }}</p>
 
             <div class="d-flex px-3">
-              <div v-if="currentPage > 1" @click="changePage()" class="pop d-flex fs-2">
+              <div @click="pageBack()" class="pop d-flex fs-2">
                 <i class="mdi mdi-chevron-left mt-4"></i>
                 <i class="mdi mdi-chevron-left mt-4"></i>
               </div>
 
-              <div v-if="currentPage < totalPages" @click="changePage(1)" class="pop d-flex fs-2">
+              <div @click="pageForward()" class="pop d-flex fs-2">
                 <i class="mdi mdi-chevron-right mt-4"></i>
                 <i class="mdi mdi-chevron-right mt-4"></i>
               </div>
@@ -32,13 +32,15 @@
           </div>
         </div>
         <hr />
-        <!-- This is the main body of the site -->
+        <!-- MAIN SITE BODY -->
         <Post v-for="p in posts" :key="p.id" :post="p" />
       </div>
-      <!-- Ads here -->
+      <!-- ToDo: Ads here -->
       <div class="col-md-3">
         <Billboard v-for="b in billboards" :key="b.id" :billboards="b" />
       </div>
+
+      <!--Page Numbers Here-->
       <div class="d-flex px-3 justify-content-center">
         <div @click="changePage(-1)" class="pop d-flex fs-2">
           <i class="mdi mdi-chevron-left mt-4"></i>
@@ -92,26 +94,35 @@ export default {
       totalPages: computed(() => AppState.totalPages),
       currentPage: computed(() => AppState.currentPage),
 
-      async changePage() {
-
-        let newPage = AppState.currentPage += value
-
-        if (newPage <= 0) {
-          Pop.toast('this is the first page, silly', "warning")
-          return
-        }
-        if (newPage > AppState.pageData.totalPages) {
-          Pop.toast('Nowhere left to go', "warning")
-          return
+      async pageBack() {
+        let newPage = AppState.pageData.newer;
+        if (newPage == null) {
+          Pop.toast("You're on the first page, silly", "warning")
+          return;
         }
         try {
           await postsService.changePage(newPage)
-
         } catch (error) {
-          Pop.toast('did not go', 'error')
-
+          console.error(error)
+          // @ts-ignore 
+          Pop.error(('[ERROR]'), error.message)
         }
       },
+
+      async pageForward() {
+        let newPage = AppState.pageData.older;
+        if (newPage == null) {
+          Pop.toast("This is the end", "warning")
+          return;
+        }
+        try {
+          await postsService.changePage(newPage)
+        } catch (error) {
+          console.error(error)
+          // @ts-ignore 
+          Pop.error(('[ERROR]'), error.message)
+        }
+      }
     };
   },
 };

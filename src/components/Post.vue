@@ -1,8 +1,9 @@
 <template>
   <div class="row mt-1 cards shadow elevation-5">
-    <div class="d-flex p-3">
+    <div class="d-flex p-3 mt-3">
       <!-- <router-link> -->
-      <img :src="post.creator.picture" alt="Profile pic" title="Go To Profile" class="img-fluid selectable rounded-circle prof-img"
+      <img :src="post.creator.picture" alt="Profile pic" title="Go To Profile"
+        class="img-fluid selectable rounded-circle prof-img"
         @click.stop="navigateTo('Profile', { id: post.creatorId })" />
       <!-- </router-link> -->
       <div class="mx-3">
@@ -15,7 +16,7 @@
       </div>
       <!-- THIS CHECKS IF YOU ARE OWNER, and REVEALS ELEMENT -->
       <div class="text-end" v-if="post.creatorId == account.id">
-        <i class="mdi mdi-delete selectable ms-3" @click="deletePost(post.id)"></i>
+        <i class="mdi mdi-delete selectable ms-3 justify-text-left" @click="deletePost(post.id)"></i>
         <!-- <i class="mdi mdi-pencil selectable ms-3" @click="editPost(post.id)"></i> -->
       </div>
 
@@ -24,7 +25,7 @@
     <div class="div">
       <div class="d-flex justify-content-between">
 
-        <div class="rounded p-2" style="width: 100%">
+        <div class="rounded p-1" style="width: 100%">
           <p class="body-text">
             {{ post.body }}
           </p>
@@ -117,19 +118,19 @@ export default {
   height: 3em;
 }
 
-.name{
+.name {
   color: #c391ee;
   font-size: 1.5em;
   font-family: 'Creepster', cursive;
 }
 
 .body-text {
-    font-size: 1em;
-    color: #c391ee
+  font-size: 1em;
+  color: #c391ee
 }
 
-.date{
+.date {
   font-size: .75em;
-    color: #c391ee
+  color: #c391ee
 }
 </style>

@@ -18,7 +18,7 @@
 
   </div>
 
-  <form class="input-group bg-dark p-3 justify-content-center" @submit.prevent="editProfile(formData)">
+  <form class="input-group p-3 justify-content-center" @submit.prevent="editProfile(formData)">
     <div class="d-flex">
       <div class="d-flex flex-column profile-form">
         <label for="email">Account email</label>
