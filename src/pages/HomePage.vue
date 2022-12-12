@@ -8,9 +8,9 @@
       <div class="col-md-7">
         <div class="d-flex justify-content-between">
 
-          <button v-if="user.isAuthenticated" type="button" title="Click to open form" class="btn btn-success m-3"
+          <button v-if="user.isAuthenticated" type="button" title="Click to open form" class="btn btn-success m-5"
             data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Create a post!
+            New Post
           </button>
 
           <!--PAGE COMPONENT-->
@@ -42,12 +42,12 @@
 
       <!--Page Numbers Here-->
       <div class="d-flex px-3 justify-content-center">
-        <div @click="changePage(-1)" class="pop d-flex fs-2">
+        <div @click="pageBack()" class="pop d-flex fs-2">
           <i class="mdi mdi-chevron-left mt-4"></i>
           <i class="mdi mdi-chevron-left mt-4"></i>
         </div>
 
-        <div @click="changePage(1)" class="pop d-flex fs-2">
+        <div @click="pageForward()" class="pop d-flex fs-2">
           <i class="mdi mdi-chevron-right mt-4"></i>
           <i class="mdi mdi-chevron-right mt-4"></i>
         </div>
@@ -72,6 +72,7 @@ import { postsService } from "../services/PostsService.js";
 import { AppState } from "../AppState";
 import { billboardsService } from "../services/BillboardsService.js";
 import Modal from "../components/Modal.vue";
+
 
 export default {
   components: { Modal },

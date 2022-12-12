@@ -39,6 +39,7 @@ import { postsService } from '../services/PostsService';
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
 import { AppState } from '../AppState';
+import { profilesService } from '../services/ProfilesService';
 export default {
   setup() {
     const router = useRouter()
@@ -53,6 +54,7 @@ export default {
         try {
           router.push('/')
           await postsService.search(query.value)
+          await profilesService.search(query.value)
           Pop.toast('it did not fail', 'success')
         } catch (error) {
           Pop.toast(error.message, "error")

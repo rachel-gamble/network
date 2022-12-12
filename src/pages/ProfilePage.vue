@@ -14,11 +14,11 @@
         <div class="d-flex px-3 justify-content-center">
           <div class="d-flex flex-column text-center">
             <p> Page: {{ page.page }}</p>
-            
+
             <!-- Page Function -->
             <div class="p-3 mx-2">
               <i class="mdi mdi-chevron-left"></i>
-              <button class="mx-3" @click="pageBack()">Newer posts</button>
+              <button class="mx-3--" @click="pageBack()">Newer posts</button>
               <button class="mx-3" @click="pageForward()">Older posts</button>
               <i class="mdi mdi-chevron-right"></i>
             </div>
@@ -41,7 +41,7 @@
 import { computed, onMounted } from "@vue/runtime-core";
 import { useRoute } from "vue-router";
 import { postsService } from "../services/PostsService";
-import { profilesService } from "../services/ProfilesService";
+import { profilesService } from "../services/ProfilesService.js";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { AppState } from "../AppState";
@@ -49,7 +49,7 @@ import Billboard from "../components/Billboard.vue";
 import { billboardsService } from "../services/BillboardsService";
 import ProfileDetails from "../components/ProfileDetails.vue";
 import AccountPageVue from './AccountPage.vue';
-import { accountService } from '../services/AccountService';
+import { accountService } from '../services/AccountService.js';
 export default {
   setup() {
     const route = useRoute();

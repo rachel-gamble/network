@@ -41,7 +41,7 @@ class PostsService {
     }
     async createPost(newPost) {
         const res = await api.post('api/posts', newPost)
-        AppState.allPosts.push(res.data)
+        AppState.allPosts.unshift(res.data)
     }
     async deletePost(id) {
         const res = await api.delete('api/posts/' + id)
