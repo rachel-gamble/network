@@ -1,94 +1,56 @@
 <template>
-  <div class="about text-center">
-    <img :src="account.coverImg" class="img-fluid p-2 mt-3" alt="" />
-    <h1 class="creeper">Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <h3>{{ account.email }}</h3>
-    <p>{{ account.bio }}</p>
+  <div class="text-body">
+
+    <div class="about text-center">
+      <img :src="account.coverImg" class="img-fluid p-2 mt-3" alt="" />
+      <h1 class="creeper">Welcome {{ account.name }}</h1>
+      <img class="rounded" :src="account.picture" alt="" />
+      <h3>{{ account.email }}</h3>
+      <p>{{ account.bio }}</p>
 
       <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column align-items-start">
+        <div class="d-flex flex-column align-items-start">
 
-      <span> <b>Github</b> {{ account.github }}</span>
-      <span> <b>Linkedin:</b> {{ account.linkedin }}</span>
-      <span> <b>Resume:</b>  {{ account.resume }}</span>
-      <span> <b>Class:</b> {{ account.class }}/ <b>Graduate?</b> {{ account.graduated }}</span>
+          <span> <b>Github</b> {{ account.github }}</span>
+          <span> <b>Linkedin:</b> {{ account.linkedin }}</span>
+          <span> <b>Resume:</b> {{ account.resume }}</span>
+          <span> <b>Class:</b> {{ account.class }}/ <b>Graduate?</b> {{ account.graduated }}</span>
+        </div>
       </div>
+
     </div>
 
-  </div>
+    <form class="input-group p-3 justify-content-center" @submit.prevent="editProfile(formData)">
+      <div class="d-flex">
+        <div class="d-flex flex-column profile-form">
+          <label for="email">Account email</label>
+          <input type="text" name="email" placeholder="email..." />
+          <label class="mt-2" for="name">Change username</label>
+          <input class="mt-2" type="text" name="name" placeholder="new username..." v-model="account.name" />
+          <label class="mt-2" for="picture">Enter a URL link to your profile picture
+          </label>
+          <input class="mt-2" type="url" name="picture" placeholder="https://something.jpg" v-model="account.picture" />
+          <label for="bio">Bio</label>
+          <input type="text" name="bio" placeholder="Bio..." v-model="account.bio" />
+          <label for="coverImg">Cover Image URL...</label>
+          <input type="url" name="coverImg" placeholder="Cover Image URL..." v-model="account.coverImg" />
+        </div>
 
-  <form class="input-group p-3 justify-content-center" @submit.prevent="editProfile(formData)">
-    <div class="d-flex">
-      <div class="d-flex flex-column profile-form">
-        <label for="email">Account email</label>
-        <input type="text" name="email" placeholder="email..." />
-        <label class="mt-2" for="name">Change username</label>
-        <input
-          class="mt-2"
-          type="text"
-          name="name"
-          placeholder="new username..."
-          v-model="account.name"
-        />
-        <label class="mt-2" for="picture"
-          >Enter a URL link to your profile picture
-        </label>
-        <input
-          class="mt-2"
-          type="url"
-          name="picture"
-          placeholder="https://something.jpg"
-          v-model="account.picture"
-        />
-        <label for="bio">Bio</label>
-        <input
-          type="text"
-          name="bio"
-          placeholder="Bio..."
-          v-model="account.bio"
-        />
-        <label for="coverImg">Cover Image URL...</label>
-        <input
-          type="url"
-          name="coverImg"
-          placeholder="Cover Image URL..."
-          v-model="account.coverImg"
-        />
+        <div class="d-flex flex-column p-4 text-body">
+          <small>Enter links to your socials and resume</small>
+          <input class="mt-4" type="url" name="github" placeholder="github link..." v-model="account.github" />
+          <input class="mt-4" type="url" name="linkedin" placeholder="linkedin url..." v-model="account.linkedin" />
+          <input class="mt-4" type="url" name="resume" placeholder="resume URL..." v-model="account.resume" />
+          <input class="mt-4" type="text" name="class" placeholder="class of..." v-model="account.class" />
+          <label for="graduated">Are you an alumni of BCW?</label>
+          <input type="checkbox" v name="graduated" v-model="account.graduated">
+        </div>
       </div>
-
-      <div class="d-flex flex-column p-4">
-        <small>Please enter links to your socials and resume.</small>
-        <input
-          class="mt-4"
-          type="url"
-          name="github"
-          placeholder="github link..."
-          v-model="account.github"
-        />
-        <input
-          class="mt-4"
-          type="url"
-          name="linkedin"
-          placeholder="linkedin url..."
-          v-model="account.linkedin"
-        />
-        <input
-          class="mt-4"
-          type="url"
-          name="resume"
-          placeholder="resume URL..."
-          v-model="account.resume"
-        />
-        <input class="mt-4" type="text" name="class" placeholder="class of..." v-model="account.class" />
-        <label for="graduated">Are you an alumni of BCW?</label>
-        <input type="checkbox" v name="graduated" v-model="account.graduated">
-      </div>
-    </div>
       <span class="mt-2">
-        <button type="submit" class="btn btn-success selectable">Submit</button>
+        <button type="submit" class="btn btn-info selectable">Submit</button>
       </span>
-  </form>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -122,11 +84,23 @@ export default {
 img {
   max-width: 50vh;
 }
+
 .profile-form {
   min-height: 100%;
+  color: #c391ee;
 }
 
 .creeper {
   font-family: 'Creepster', cursive;
+  color: #c391ee;
+}
+
+.text-body {
+  color: #c391ee;
+}
+
+.link {
+  outline: #c391ee;
+  color: #c391ee;
 }
 </style>

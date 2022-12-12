@@ -8,7 +8,7 @@
       <div class="col-md-7">
         <div class="d-flex justify-content-between">
 
-          <button v-if="user.isAuthenticated" type="button" title="Click to open form" class="btn btn-success m-5"
+          <button v-if="user.isAuthenticated" type="button" title="Click to open form" class="btn btn-info m-5"
             data-bs-toggle="modal" data-bs-target="#exampleModal">
             New Post
           </button>
@@ -136,5 +136,10 @@ export default {
   color: yellow;
   box-shadow: 2px, 2px, 2px;
   cursor: pointer;
+}
+
+.link {
+  outline: #c391ee;
+  color: #c391ee;
 }
 </style>
