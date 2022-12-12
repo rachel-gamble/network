@@ -11,7 +11,7 @@
       </router-link>
       <form @submit.prevent="findPosts()" class="input-group p-4 ms-3">
         <input v-model="query" required type="text" name="search" class="form-control"
-          placeholder="Search for posts on the homepage..." aria-label="Search for post"
+          placeholder="Search for posts..." aria-label="Search for post"
           aria-describedby="button-addon2" />
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">
           Search...
@@ -54,11 +54,21 @@ export default {
         try {
           router.push('/')
           await postsService.search(query.value)
-          await profilesService.search(query.value)
+          // await profilesService.search(query.value)
           Pop.toast('it did not fail', 'success')
         } catch (error) {
           Pop.toast(error.message, "error")
           logger.log('Could not commit to that search')
+        }
+      },
+      async findPeople(){
+        try {
+         router.push('/')
+         await profilesService.search()
+        } catch (error) {
+         console.error(error)
+         // @ts-ignore 
+         Pop.error(('[ERROR]'), error.message)
         }
       },
 
